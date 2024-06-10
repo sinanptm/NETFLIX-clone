@@ -1,7 +1,9 @@
 import React from "react";
+import Body from "./Components/Body";
+import './App.css'
 
 const App = () => {
-  return <h1>hello</h1>  
+  return <Body className={'App'} />
 }
 
 export default App;
