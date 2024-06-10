@@ -1,24 +1,24 @@
-
-.navbar{
-    position: fixed;
-    top:0;
-    width: 100%;
-    height: 30px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-   
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 99999990;
 }
 
-.logo{
-position: fixed;
-left: 20px;
-width: 80px;
+.logo {
+  position: fixed;
+  left: 40px;
+  top: 30px;
+  width: 110px;
 }
 
 .avatar {
-    position: fixed;
-    right: 20px;
-    width: 30px;
+  position: fixed;
+  right: 40px;
+  top: 30px;
+  width: 30px;
 }
-

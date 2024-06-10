@@ -1,4 +1,4 @@
-export const baseURL = 'https://api.themmoviedb.org/3'
+export const baseURL = 'https://api.themoviedb.org/3'
 
 export const api_key = process.env.REACT_APP_THEMOVIEDB_API_KEY
 
