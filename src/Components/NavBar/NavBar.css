@@ -2,23 +2,52 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 30px;
-  padding: 20px;
+  height: 60px;
+  padding: 0 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   z-index: 99999990;
 }
 
 .logo {
-  position: fixed;
-  left: 40px;
-  top: 30px;
   width: 110px;
 }
 
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  font-weight: 600;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.nav-links a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
 .avatar {
-  position: fixed;
-  right: 40px;
-  top: 30px;
   width: 30px;
+}
+
+.search{
+  margin-right: 30px;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  }
+  .search{
+    display: none;
+  }
 }

@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import axios from "axios";
-import { api_key, imageUrl, baseURL } from "../../constants/constants";
-import BannerSkeleton from "../../assets/BannerSkeleton";
+import BannerSkeleton from "../Skelton/BannerSkeleton";
+import { Trending, Image } from "../../constants/URLs";
 
 function Banner() {
   const [movie, setMovie] = useState(null);
@@ -11,9 +11,7 @@ function Banner() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(
-        `${baseURL}/trending/all/week?api_key=${api_key}&language=en-US`
-      );
+      const res = await axios.get(Trending);
       const movies = res.data.results;
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
 
@@ -34,9 +32,14 @@ function Banner() {
   }
 
   return (
-    <div className="banner" style={{ backgroundImage: `url(${imageUrl}${movie.backdrop_path})` }}>
+    <div
+      className="banner"
+      style={{ backgroundImage: `url(${Image}${movie.backdrop_path})` }}
+    >
       <div className="content">
-        <h1 className="title">{movie.title || movie.name || movie.original_title}</h1>
+        <h1 className="title">
+          {movie.title || movie.name || movie.original_title}
+        </h1>
         <div className="banner_buttons">
           <button className="button">Play</button>
           <button className="button">My list</button>
