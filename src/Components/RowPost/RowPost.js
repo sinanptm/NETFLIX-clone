@@ -3,7 +3,7 @@ import './RowPost.css';
 import axios from 'axios';
 import MovieSkeleton from '../Skelton/MovieSkeleton';
 import { Image } from '../../utils/URLs';
-import { useSearch } from '../../Provider/SearchProvider';
+import { useSearch } from '../../Provider/SearchContext';
 
 function RowPost({ title, isSmall, url }) {
     const [movies, setMovies] = useState([]);

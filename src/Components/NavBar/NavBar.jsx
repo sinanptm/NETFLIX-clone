@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./NavBar.css";
 import { FaSearch } from "react-icons/fa";
 import { Logo, Avatar } from "../../utils/URLs";
-import { useSearch } from "../../Provider/SearchProvider";
+import { useSearch } from "../../Provider/SearchContext";
 
 function NavBar() {
   const [showInput, setShowInput] = useState(false);

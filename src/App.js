@@ -1,12 +1,12 @@
 import React from "react";
-import Body from "./Components/Body";
 import './App.css';
-import SearchProvider from "./Provider/SearchProvider";
+import SearchProvider from "./Provider/SearchContext";
+import AppRouter from "./AppRounter";
 
 const App = () => {
   return (
     <SearchProvider>
-      <Body className={'App'} />
+      <AppRouter />
     </SearchProvider>
   )
 }

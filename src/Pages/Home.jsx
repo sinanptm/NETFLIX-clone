@@ -1,7 +1,7 @@
 import React from "react";
-import NavBar from "./NavBar/NavBar";
-import Banner from "./Banner/Banner";
-import RowPost from "./RowPost/RowPost";
+import NavBar from "../Components/NavBar/NavBar";
+import Banner from "../Components/Banner/Banner";
+import RowPost from "../Components/RowPost/RowPost";
 import {
   NetflixOriginals,
   AnimeMovies,
