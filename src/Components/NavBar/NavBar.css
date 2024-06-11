@@ -102,6 +102,17 @@
   transform: scale(1.02); /* Slight zoom effect */
 }
 
+.signUp{
+  color: #fff;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #e50914;
+  cursor: pointer;
+}
+
 /* Responsive adjustments */
 @media (max-width: 800px) {
   .nav-links {

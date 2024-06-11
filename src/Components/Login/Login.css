@@ -1,0 +1,125 @@
+.Login {
+  position: relative;
+  height: 100vh;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/85e22987-d2dd-46ca-b8b7-65cd0e31c24a/629ae878-26a7-4d88-b12b-af5018a1f7b2/US-en-20201123-popsignuptwoweeks-perspective_alpha_website_large.jpg") center no-repeat;
+  background-size: cover;
+}
+
+.Login_gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.Login_body {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.Login_body h1 {
+  font-size: 3.125rem;
+  margin-bottom: 20px;
+}
+
+.Login_body h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.Login_body h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.Login_input {
+  margin-top: 20px;
+}
+
+.Login_input form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Login_input input {
+  padding: 10px;
+  outline-width: 0;
+  height: 40px;
+  width: 60%;
+  max-width: 280px;
+  border-width: 0.0625rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  border-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(22, 22, 22, 0.7);
+  margin-right: 10px;
+}
+
+.Login_getStarted {
+  appearance: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 0.25rem;
+  background: rgb(229, 9, 20);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  max-height: 40px;
+  max-width: 155px;
+  transition: background-color 0.1s ease, transform 0.2s ease;
+}
+
+.Login_getStarted:hover {
+  background: rgb(200, 8, 18);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .Login_body h1 {
+    font-size: 2.5rem;
+  }
+
+  .Login_body h2 {
+    font-size: 1.5rem;
+  }
+
+  .Login_body h3 {
+    font-size: 1rem;
+  }
+
+  .Login_input input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .Login_input form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Login_getStarted {
+    width: 100%;
+  }
+}

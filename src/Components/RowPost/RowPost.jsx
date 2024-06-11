@@ -3,7 +3,7 @@ import './RowPost.css';
 import axios from 'axios';
 import MovieSkeleton from '../Skelton/MovieSkeleton';
 import { Image } from '../../utils/URLs';
-import { useSearch } from '../../Provider/SearchContext';
+import { useSearch } from '../../Contexts/SearchContext';
 
 function RowPost({ title, isSmall, url }) {
     const [movies, setMovies] = useState([]);
@@ -16,7 +16,6 @@ function RowPost({ title, isSmall, url }) {
             const fetchedMovies = res.data.results ?? [];
             setMovies(fetchedMovies);
             setStoredMovies(prev => [...prev, ...fetchedMovies]);
-            // console.log(fetchedMovies[0]);
             setLoading(false);
         } catch (error) {
             console.error('Error fetching data.', error);
