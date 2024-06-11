@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import axios from "axios";
 import BannerSkeleton from "../Skelton/BannerSkeleton";
-import { Trending, Image } from "../../constants/URLs";
+import { Trending, Image } from "../../utils/URLs";
 
 function Banner() {
   const [movie, setMovie] = useState(null);

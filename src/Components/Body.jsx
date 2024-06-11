@@ -11,7 +11,7 @@ import {
   Documentaries,
   RomanceMovies,
   ActionMovies
-} from "../constants/URLs";
+} from "../utils/URLs";
 
 const Body = () => {
   return (

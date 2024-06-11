@@ -8,6 +8,9 @@ const commonTV = `${baseURL}/discover/tv?api_key=${api_key}&with_`;
 export const Trending = `${baseURL}/trending/all/week?api_key=${api_key}&language=en-US`
 export const Image = 'https://image.tmdb.org/t/p/original'
 
+export const Avatar = 'https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png'
+export const Logo = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png'
+
 export const NetflixOriginals = `${commonTV}networks=213`;
 export const AnimeShows = `${commonTV}genres=16`;
 export const ActionMovies = `${commonMovies}genres=28`;
