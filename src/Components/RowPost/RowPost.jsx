@@ -28,8 +28,10 @@ function RowPost({ title, isSmall, url }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const count = isSmall? 10 : 7;
+
     if (loading) {
-        return <MovieSkeleton isSmall={isSmall} count={7} />;
+        return <MovieSkeleton isSmall={isSmall} count={count} />;
     }
 
     return (

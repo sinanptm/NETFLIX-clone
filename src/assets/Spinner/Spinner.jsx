@@ -12,19 +12,20 @@ const propagateStyle = {
   justifyContent: "center",
   alignItems: "center",
   width: "100px",
-  color: 'rgb(237, 237, 237)',
+  color: '#ffff',
   paddingTop:'0px'
 };
+
 const Spinner = () => {
   return (
     <div style={spinnerStyle}>
-      <BeatLoader size={15} />
+      <BeatLoader cssOverride={{color:'white'}} size={15} />
     </div>
   );
 };
 
 export const PropagateLoaders = () => (
-    <PropagateLoader color="#36d7b7" size={4} cssOverride={propagateStyle} />
+    <PropagateLoader size={4} cssOverride={propagateStyle} />
 );
 
 export default Spinner;

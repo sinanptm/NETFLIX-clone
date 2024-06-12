@@ -96,7 +96,7 @@ function NavBar({ setSignUp, signUp, loc }) {
         <img className="avatar" src={Avatar} alt="Avatar" />
         <div className="drop-content">
           <a href="#profile">Profile</a>
-          <a href="#sign-out" onClick={handleSignOut}>Sign Out</a>
+          <a href="/home" onClick={handleSignOut}>Sign Out</a>
         </div>
       </div>
     </div>
