@@ -29,8 +29,10 @@
   text-align: center;
   max-width: 650px;
   margin: 0 auto;
-  top: 50%;
+  top: 48%;
   transform: translateY(-50%);
+  left: 0;
+  right: 0;
 }
 
 .Login_body h1 {
@@ -93,7 +95,7 @@
 
 .Login_getStarted:hover {
   background: rgb(200, 8, 18);
-  color: #fff;
+  transform: scale(1.05); /* Adding slight zoom on hover */
 }
 
 @media (max-width: 768px) {

@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { useAuth } from './Contexts/AuthContext';
 import Spinner from './assets/Spinner';
 
@@ -7,20 +7,19 @@ const Login = lazy(() => import("./Pages/Login"));
 const Home = lazy(() => import("./Pages/Home"));
 
 const AppRouter = () => {
-    // const { user } = useAuth();
-    // const { Navigate } = useNavigate();
+    const { user } = useAuth();
 
     const router = createBrowserRouter([
-        // { path: "/login", element: user ? <Navigate to="/home" /> : <Login /> },
-        // { path: "/signup", element: user ? <Navigate to="/home" /> : <Login /> },
-        { path: "/home", element: <Home /> },
-        { path: "/", element: <Login /> },
+        { path: "/login", element: user ? <Navigate to="/home" /> : <Login /> },
+        { path: "/signup", element: user ? <Navigate to="/home" /> : <Login /> },
+        { path: "/home", element:  <Home /> },
+        { path: "/", element: <Home /> },
     ]);
 
     return (
-            <Suspense fallback={<Spinner />}>
-                <RouterProvider router={router} />
-            </Suspense>
+        <Suspense fallback={<Spinner />}>
+            <RouterProvider router={router} />
+        </Suspense>
     );
 };
 

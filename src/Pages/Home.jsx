@@ -16,7 +16,7 @@ import {
 const Body = () => {
   return (
     <>
-      <NavBar />
+      <NavBar loc={"Home"}/>
       <Banner />
       <RowPost url={NetflixOriginals} title="Netflix Originals" />
       <RowPost url={ActionMovies} isSmall title="Action" />
