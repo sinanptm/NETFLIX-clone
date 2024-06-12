@@ -42,9 +42,9 @@ function NavBar({ setSignUp, signUp, loc }) {
   if (!user) {
     return (
       <div className="navbar">
-       <Link to={"/home"}>
-        <img className="logo" src={Logo} alt="Netflix Logo" />
-      </Link>
+        <Link to={"/home"}>
+          <img className="logo" src={Logo} alt="Netflix Logo" />
+        </Link>
         <SignUpButton setSignUp={setSignUp} loc={loc} signUp={signUp} />
       </div>
     );
@@ -72,17 +72,22 @@ function NavBar({ setSignUp, signUp, loc }) {
       <button className="search-toggle" onClick={handleClick}>
         <FaSearch color="#fff" className="search-icon" />
       </button>
-      {showInput && (
-        <input
-          type="text"
-          className="search-input"
-          placeholder="Enter search term..."
-          value={searchTerm}
-          onChange={handleChange}
-        />
-      )}
+      <input
+        type="text"
+        className={`search-input ${showInput ? "show" : ""}`}
+        placeholder="Enter search term..."
+        value={searchTerm}
+        onBlur={()=>setShowInput(false)}
+        onChange={handleChange}
+      />
       <ShowSuggestions />
-      <img className="avatar" src={Avatar} alt="Avatar" />
+      <div className="drop">
+        <img className="avatar" src={Avatar} alt="Avatar" />
+        <div className="drop-content">
+          <a href="#profile">Profile</a>
+          <a href="#sign-out" onClick={()=>setSignUp(false)}>Sign Out</a>
+        </div>
+      </div>
     </div>
   );
 }

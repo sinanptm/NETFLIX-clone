@@ -1,13 +1,13 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 export const SignUpButton = ({ loc, setSignUp, signUp }) => {
-
+  const navigate = useNavigate()
   if (loc === "Home")
     return (
-      <Link to={"/login"} className="signUp">
-        {" "}
+      <button onClick={()=>navigate('/login')} className="signUp" >
         Sign Up
-      </Link>
+      </button>
     );
 
   else if (signUp)

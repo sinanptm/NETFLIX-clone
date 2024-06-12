@@ -12,7 +12,7 @@ const spinnerStyle = {
 const Spinner = () => {
     return (
         <div style={spinnerStyle}>
-            <BeatLoader size={15} color={"#123abc"} />
+            <BeatLoader size={15} color={"#e50914"} />
         </div>
     );
 }

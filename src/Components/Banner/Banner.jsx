@@ -1,4 +1,3 @@
-// src/components/Banner/Banner.js
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
 import axios from "axios";
@@ -14,12 +13,12 @@ function Banner() {
       const res = await axios.get(Trending);
       const movies = res.data.results;
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-
+      
       setMovie(randomMovie);
       setLoading(false);
     } catch (error) {
       setLoading(false);
-      console.log("error:", error);
+      console.log("Error:", error);
     }
   };
 
@@ -29,6 +28,10 @@ function Banner() {
 
   if (loading) {
     return <BannerSkeleton />;
+  }
+
+  if (!movie) {
+    return null;
   }
 
   return (
