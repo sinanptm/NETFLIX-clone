@@ -1,49 +1,83 @@
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import "./SignUp.css";
-import React, { useRef } from "react";
-import { useAuth } from "../../Contexts/AuthContext";
+import SignIn from "../SignIn/SignIn";
+import ValidateEmail from "../../utils/ValidateEmail";
+import { createUserWithEmailAndPassword } from "firebase/auth/cordova";
+import { auth } from "../../utils/firebase/config";
+import { PropagateLoaders } from "../../assets/Spinner/Spinner"; 
 
-const SignIn = ({ setSignUp, signUp }) => {
-  const emailRef = useRef(null);
-  const { setUser } = useAuth();
-  const passwordRef = useRef(null);
-  const navigate = useNavigate();
+const SignUp = ({ signUp, setSignUp }) => {
+  const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    if (e.target.name === "email") setEmail(e.target.value);
+    else setPassword(e.target.value);
+    setError("");
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const email = emailRef.current.value;
-    if (email.trim() === "") {
-      emailRef.current.style.borderColor = "red";
-    } else {
-      emailRef.current.style.borderColor = "";
+    if (email.trim() === "" || password.trim() === "") {
+      setError("Please fill all the fields");
+      return;
     }
-    setUser(true);
-    navigate("/home");
+    if (!ValidateEmail(email)) {
+      setError("Email is not valid");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      await createUserWithEmailAndPassword(auth, email, password);
+      setLoading(false);
+      setSignUp(true);
+      setEmail("");
+      setPassword("");
+      setError("");
+    } catch (error) {
+      if (error.code === "auth/email-already-in-use") {
+        setError("You are already a user, Please login");
+      } else {
+        setError("Registration failed. Please try again.");
+      }
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   return (
-    <div className="signIn">
-      <form>
-        <h1>Sign In</h1>
-        <input
-          type="email"
-          ref={emailRef}
-          placeholder="Email or mobile number"
-        />
-        <input type="password" ref={passwordRef} placeholder="Password" />
-        <button type="button" onClick={handleSubmit}>
-          Sign In
-        </button>
-        <span style={{ display: "none" }}></span>
-        <h4>
-          <span className="signIn_gray">New to Netflix? </span>
-          <span className="signIn_link" onClick={() => setSignUp(!signUp)}>
-            Sign up now.
-          </span>
-        </h4>
-      </form>
+    <div className="SignUp">
+      <div className="SignUp_gradient" />
+      <div className="SignUp_body">
+        {signUp ? (
+          <SignIn setSignUp={setSignUp} signUp />
+        ) : (
+          <>
+            <h1>Unlimited films, TV programs and more.</h1>
+            <h2>Watch anywhere. Cancel at any time.</h2>
+            <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
+            <div className="SignUp_input">
+              <form noValidate onSubmit={handleSubmit}>
+                <input type="email" name="email" value={email} onChange={handleChange} placeholder="Email address" />
+                <input type="password" name="password" value={password} onChange={handleChange} placeholder="Password" />
+                <button type="submit" className="SignUp_getStarted" disabled={loading}>
+                  {loading ? <PropagateLoaders /> : "GET STARTED"}
+                </button>
+              </form>
+            </div>
+            <div className="SignUp_error">{error}</div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;

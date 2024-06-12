@@ -6,12 +6,23 @@ import { useSearch } from "../../Contexts/SearchContext";
 import { SignUpButton } from "../../assets/SignUpButton";
 import { useAuth } from "../../Contexts/AuthContext";
 import { Link } from "react-router-dom";
+import { auth } from "../../utils/firebase/config";
+import { signOut } from "firebase/auth";
 
 function NavBar({ setSignUp, signUp, loc }) {
   const [showInput, setShowInput] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { searchResults, handleSearch } = useSearch();
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
+
+  const handleSignOut = async () => {
+    try {
+        await signOut(auth);
+        setUser(null);
+    } catch (error) {
+        console.error("Failed to sign out:", error);
+    }
+};
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -85,7 +96,7 @@ function NavBar({ setSignUp, signUp, loc }) {
         <img className="avatar" src={Avatar} alt="Avatar" />
         <div className="drop-content">
           <a href="#profile">Profile</a>
-          <a href="#sign-out" onClick={()=>setSignUp(false)}>Sign Out</a>
+          <a href="#sign-out" onClick={handleSignOut}>Sign Out</a>
         </div>
       </div>
     </div>

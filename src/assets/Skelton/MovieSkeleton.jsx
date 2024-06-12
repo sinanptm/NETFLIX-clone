@@ -15,7 +15,8 @@ const MovieSkeleton = ({ count, isSmall }) => {
     borderRadius: '5px',
     boxShadow: '0 2px 8px rgba(0, 0, 0, 0.5)',
   };
-  const height = isSmall ? 130 : 180
+  const height = isSmall ? 99: 164
+  const width = isSmall ? 179 : 293
   
   return (
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
@@ -24,7 +25,7 @@ const MovieSkeleton = ({ count, isSmall }) => {
           .fill()
           .map((_, index) => (
             <div key={index} style={skeletonItemStyle}>
-              <Skeleton height={height} width={270} />
+              <Skeleton height={height} width={width} />
             </div>
           ))}
       </div>

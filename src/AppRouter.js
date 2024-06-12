@@ -1,13 +1,13 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { useAuth } from './Contexts/AuthContext';
-import Spinner from './assets/Spinner';
+import Spinner from './assets/Spinner/Spinner';
 
 const Login = lazy(() => import("./Pages/Login"));
 const Home = lazy(() => import("./Pages/Home"));
 
 const AppRouter = () => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
 
     const router = createBrowserRouter([
         { path: "/login", element: user ? <Navigate to="/home" /> : <Login /> },
@@ -15,6 +15,9 @@ const AppRouter = () => {
         { path: "/home", element:  <Home /> },
         { path: "/", element: <Home /> },
     ]);
+    if (loading){
+        return <Spinner />
+    }
 
     return (
         <Suspense fallback={<Spinner />}>

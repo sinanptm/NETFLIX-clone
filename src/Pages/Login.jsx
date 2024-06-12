@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Login from "../Components/Login/Login";
+import Login from "../Components/SignUp/SignUp";
 import NavBar from "../Components/NavBar/NavBar";
 
 const LoginPage = () => {

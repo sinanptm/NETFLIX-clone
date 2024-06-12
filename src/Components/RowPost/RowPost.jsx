@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './RowPost.css';
 import axios from 'axios';
-import MovieSkeleton from '../Skelton/MovieSkeleton';
+import MovieSkeleton from '../../assets/Skelton/MovieSkeleton';
 import { Image } from '../../utils/URLs';
 import { useSearch } from '../../Contexts/SearchContext';
 

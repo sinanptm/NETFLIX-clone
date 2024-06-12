@@ -20,7 +20,7 @@
 }
 
 .poster {
-  max-height: 180px;
+  max-height: 165px;
   object-fit: contain;
   margin-right: 10px;
   transition: transform 0.2s;
@@ -34,7 +34,7 @@
 
 
 .smallPoster{
-  max-height: 130px;
+  max-height: 100px;
   object-fit: contain;
   margin-right: 10px;
   transition: transform 0.2s;

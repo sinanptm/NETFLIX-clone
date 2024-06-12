@@ -1,80 +1,131 @@
-.signIn {
+/* SignUp.css */
+
+.SignUp {
+  position: relative;
+  height: 100vh;
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/85e22987-d2dd-46ca-b8b7-65cd0e31c24a/629ae878-26a7-4d88-b12b-af5018a1f7b2/US-en-20201123-popsignuptwoweeks-perspective_alpha_website_large.jpg")
+    center no-repeat;
+  background-size: cover;
+}
+
+.SignUp_gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.SignUp_body {
   position: relative;
   z-index: 2;
-  max-width: 450px;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  max-width: 650px;
   margin: 0 auto;
-  padding: 60px 68px 40px;
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 4px;
-  text-align: left;
+  top: 48%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
 }
 
-.signIn form {
-  display: flex;
-  flex-direction: column;
+.SignUp_body h1 {
+  font-size: 3.125rem;
+  margin-bottom: 20px;
 }
 
-.signIn h1 {
-  margin-bottom: 28px;
+.SignUp_body h2 {
   font-size: 2rem;
-  color: #fff;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
 
-.signIn input {
-  padding: 10px;
-  margin-bottom: 10px; 
-  background: #333;
+.SignUp_body h3 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.SignUp_input {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow elements to wrap when the width is too small */
+}
+
+.SignUp_input input {
+  padding: 8px; /* Adjusted padding for inputs */
+  outline-width: 0;
+  height: 32px; /* Adjusted height for inputs */
+  width: calc(33.33% - 5px); /* Adjusted width for inputs */
+  max-width: 200px; /* Adjusted max-width for inputs */
+  border-width: 0.0625rem;
+  color: #fff;
+  border-radius: 0.25rem;
+  border-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(22, 22, 22, 0.7);
+  margin-right: 5px; /* Adjusted margin between inputs */
+}
+
+/* Override background color on focus */
+.SignUp_input input:focus {
+  background-color: rgba(22, 22, 22, 0.7); /* Maintain the original background color */
+}
+
+.SignUp_input input::backdrop {
+  background-color: initial;
+}
+
+
+.SignUp_getStarted {
+  appearance: none;
+  font-size: 1.25rem; /* Adjusted font size for button */
+  font-weight: 500;
+  height: 32px; /* Adjusted height for button */
+  padding: 0 12px 2px; /* Adjusted padding for button */
+  border-radius: 0.25rem;
+  background: rgb(229, 9, 20);
+  color: #fff;
+  cursor: pointer;
   border: none;
-  border-radius: 4px;
-  color: #fff;
-  outline: none;
+  transition: background-color 0.1s ease, transform 0.2s ease;
+  flex-basis: calc(33.33% - 5px); /* Adjusted width for the button */
+  margin-left: 5px; /* Adjusted margin between button and input */
 }
 
-.signIn input:focus {
-  border: 1px solid #e50914;
+.SignUp_getStarted:hover {
+  background: rgb(200, 8, 18);
+  transform: scale(1.09); /* Adding slight zoom on hover */
 }
 
-.signIn button {
-  padding: 10px 20px;
-  background: #e50914;
-  border: none;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.SignUp_error {
+  color: #ffffff;
+  margin-top: 5px;
+  position: relative;
+  text-align: center;
+  margin-left: 0;
 }
 
-.signIn button:hover {
-  background: #f6121d;
-  transform: scale(1.05);
-}
+@media (max-width: 768px) {
+  .SignUp_body h1 {
+    font-size: 2.5rem;
+  }
 
-.signIn h4 {
-  margin-top: 30px;
-  font-size: 1rem;
-  color: #fff;
-}
+  .SignUp_input input {
+    width: calc(100% - 10px);
+    margin-bottom: 10px;
+  }
 
-.signIn_gray {
-  color: #b3b3b3;
-}
-
-.signIn_link {
-  color: #fff;
-  cursor: pointer;
-}
-
-.signIn_link :hover{
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.error {
-  color: red;
-  font-size: 0.875rem;
-  margin: -8px 0 8px 0; 
+  .SignUp_getStarted {
+    margin-top: 10px;
+  }
 }
