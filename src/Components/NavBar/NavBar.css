@@ -112,12 +112,19 @@
   right: 20px;
   top: 20px;
   padding: 10px 20px;
+  border: none;
   font-size: 1rem;
   background-color: #e50914;
   cursor: pointer;
+  transition: all 0.3s ease; 
+  border-radius: 5px; 
 }
 
-
+.signUp:hover {
+  background-color: #b70e17; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transform: translateY(-1px); 
+}
 
 
 .drop {
@@ -131,7 +138,7 @@
   right: 0;
   background-color: #141414;
   min-width: 90px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 99999992;
   border-radius: 5px;
 }
