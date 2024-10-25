@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './RowPost.css';
-import axios from 'axios';
 import MovieSkeleton from '../../assets/Skelton/MovieSkeleton';
 import { Image } from '../../utils/URLs';
 import { useSearch } from '../../Contexts/SearchContext';
+import axiosInstance from '../../utils/axios';
 
 function RowPost({ title, isSmall, url }) {
     const [movies, setMovies] = useState([]);
@@ -12,7 +12,7 @@ function RowPost({ title, isSmall, url }) {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get(`${url}`);
+            const res = await axiosInstance.get(`${url}`);
             const fetchedMovies = res.data.results ?? [];
             setMovies(fetchedMovies);
             setStoredMovies(prev => [...prev, ...fetchedMovies]);

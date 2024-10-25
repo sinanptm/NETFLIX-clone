@@ -1,11 +1,10 @@
-const baseURL = 'https://api.themoviedb.org/3'
-const api_key = process.env.REACT_APP_THEMOVIEDB_API_KEY
+export const baseURL = 'https://api.themoviedb.org/3'
 
-const commonMovies = `${baseURL}/discover/movie?api_key=${api_key}&with_`;
-const commonTV = `${baseURL}/discover/tv?api_key=${api_key}&with_`;
+const commonMovies = `${baseURL}/discover/movie?with_`;
+const commonTV = `${baseURL}/discover/tv?with_`;
 
 
-export const Trending = `${baseURL}/trending/all/week?api_key=${api_key}&language=en-US`
+export const Trending = `${baseURL}/trending/all/week?language=en-US`
 export const Image = 'https://image.tmdb.org/t/p/original'
 
 export const Avatar = 'https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png'

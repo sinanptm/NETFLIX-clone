@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
-import axios from "axios";
 import BannerSkeleton from "../../assets/Skelton/BannerSkeleton";
 import { Trending, Image } from "../../utils/URLs";
+import axiosInstance from "../../utils/axios";
 
 function Banner() {
   const [movie, setMovie] = useState(null);
@@ -10,7 +10,7 @@ function Banner() {
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(Trending);
+      const res = await axiosInstance.get(Trending);
       const movies = res.data.results;
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
       
